@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "question": "Do you like dogs?"
+  },
+  {
+    "id": 2,
+    "question": "Do you speak Mandarin?"
+  },
+  {
+    "id": 3,
+    "question": "What is your favourite holiday destination?"
+  },
+  {
+    "id": 4,
+    "question": "Why exist?"
+  },
+  {
+    "id": 5,
+    "question": "Would a rose by any other name smell as sweet?"
+  },
+  {
+    "id": 6,
+    "question": "What is Trump's hair made of?"
+  },
+  {
+    "id": 7,
+    "question": "Who's the scariest person on Instagram?"
+  },
+  {
+    "id": 8,
+    "question": "Is the Fringe over yet?"
+  },
+  {
+    "id": 9,
+    "question": "Where is Wally?"
+  },
+  {
+    "id": 10,
+    "question": "Why did the chicken cross the road?"
+  }
+]

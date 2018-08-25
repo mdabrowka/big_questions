@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "nodemon  app.js",
-    "create-db": "cd dynamodb && node createSubscribersTable.js && cd .."
+    "create-db": "cd dynamodb && node createSubscribersTable.js && cd ..",
+    "load-data": "cd dynamodb && node loadSubscriberData.js && cd ..",
+    "read-data": "cd dynamodb && node readDataTest.js && cd ..",
+    "delete-db": "cd dynamodb && node deleteTable.js && cd .."
   },
   "dependencies": {
     "aws-sdk": "^2.302.0",
