@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+const emailModule = require('./emailModule');
 
 //nodemailer.createTestAccount((err, account) => {
     // create reusable transporter object using the default SMTP transport
@@ -18,7 +19,7 @@ let mailOptions = {
   from: "martadabrowka@gmail.com",
   to: "martadabrowka@gmail.com",
   subject: "Hello",
-  text: "This is testing"
+  text: emailModule.adminEmail
 };
 
 transporter.sendMail(mailOptions, (error, info) => {
