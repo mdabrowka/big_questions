@@ -2,9 +2,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var transporter = require('./services/emailService');
 const emailModule = require('./services/emailModule');
 const sendMessage = require('./services/emailService');
+const subscriberEmail = require('./services/subscriberEmailModule');
 var AWS = require("aws-sdk");
 var app = express();
 app.listen(3000, () => console.log('Big Questions of our time listening on port 3000!'))
@@ -70,6 +70,9 @@ app.post('/api/subscribe', function(req, res) {
                } else {
                    console.log("PutItem succeeded:", subscriber.name);
                    sendMessage(emailModule.adminEmail);
+                  var subscriberEmailAddress = subscriberEmail(subscriber.email);
+                   console.log('logging subsemailad', subscriberEmailAddress);
+                   sendMessage(subscriberEmailAddress);
                }
             });
 })
