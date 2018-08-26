@@ -50,7 +50,7 @@ if (typeof data.LastEvaluatedKey != "undefined") {
   }
 })
 
-var emails = ['marta'];
+var emails = ['first email'];
 
 app.post('/api/subscribe', function(req, res) {
   console.log(req.body);
@@ -65,6 +65,13 @@ app.post('/api/subscribe', function(req, res) {
             }
         };
         console.log('logging params', params);
+        docClient.put(params, function(err, data) {
+               if (err) {
+                   console.error("Unable to add Subscriber", subscriber.name, ". Error JSON:", JSON.stringify(err, null, 2));
+               } else {
+                   console.log("PutItem succeeded:", subscriber.name);
+               }
+            });
 })
 
 module.exports = app;
