@@ -2,6 +2,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var transporter = require('./services/emailService');
+const emailModule = require('./services/emailModule');
+const sendMessage = require('./services/emailService');
 var AWS = require("aws-sdk");
 var app = express();
 app.listen(3000, () => console.log('Big Questions of our time listening on port 3000!'))
@@ -13,10 +16,6 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-//app.set('view engine', 'jade');
-// app.get('/', function (req, res) {
-//   res.send({ title: "Welcome to the Big Questions of Our Time" })
-// })
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
@@ -70,6 +69,7 @@ app.post('/api/subscribe', function(req, res) {
                    console.error("Unable to add Subscriber", subscriber.name, ". Error JSON:", JSON.stringify(err, null, 2));
                } else {
                    console.log("PutItem succeeded:", subscriber.name);
+                   sendMessage(emailModule.adminEmail);
                }
             });
 })
